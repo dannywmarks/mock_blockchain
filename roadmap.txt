@@ -11,3 +11,8 @@ BLOCK {
 TDD: Test driven development approach 
 - confidence in reliable code
 - speed up the coding process 
+
+
+2. Create Genesis Block 
+  This is the starting / origin block of the chain 
+  genesis() static function on the block class

@@ -1,3 +1,4 @@
+const {GENESIS_DATA} = require('./config.js')
 class Block {
   // Use map for arguments to not worry about order
   constructor({ timestamp, lastHash, hash, data }) {
@@ -5,6 +6,11 @@ class Block {
       (this.lastHash = lastHash),
       (this.hash = hash),
       (this.data = data);
+    
+  }
+  // Factory Method
+  static genesis() {
+    return new this(GENESIS_DATA)
   }
 }
 
