@@ -29,4 +29,8 @@ TDD: Test driven development approach
 
   Produces a unique value for unique input
   A one-way function
-  
+
+5. Use crytpo hash function in the Mineblock function 
+   Hash the timestamp, lastBlock hash, data
+
+6. Blockchain class
