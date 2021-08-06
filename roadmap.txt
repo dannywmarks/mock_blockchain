@@ -34,3 +34,17 @@ TDD: Test driven development approach
    Hash the timestamp, lastBlock hash, data
 
 6. Blockchain class
+   have ability to add block to blockchain
+
+7. Checking for correct block in chain
+  1. Correct block fields present
+  2. Actual lastHash reference 
+  3. Valid hash
+
+  timestamp, data, lastHash should = hash
+
+8. Validate chain static function in blockchain class
+   - Check for a valid genesis block
+   - check for a valid hash
+   - chain has invalid block data return false
+   - returns true if valid block chain
