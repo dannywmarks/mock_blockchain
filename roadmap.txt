@@ -48,3 +48,7 @@ TDD: Test driven development approach
    - check for a valid hash
    - chain has invalid block data return false
    - returns true if valid block chain
+
+9. Replace Chain replaceChain() method
+  - Check if the chain is valid and has not been tampered width
+  - Check to make sure the length of chain that is being replaced is longer than the original
