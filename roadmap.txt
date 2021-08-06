@@ -16,3 +16,9 @@ TDD: Test driven development approach
 2. Create Genesis Block 
   This is the starting / origin block of the chain 
   genesis() static function on the block class
+
+3. Create Mine Block function 
+  mineBlock() static function that mines a new block with 
+    -timestamp, 
+    -the hash from the last block, 
+    -and data 
