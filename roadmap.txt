@@ -22,3 +22,11 @@ TDD: Test driven development approach
     -timestamp, 
     -the hash from the last block, 
     -and data 
+
+4. Crypto Hash and SHA-256
+  Secure Hash Algorithm 256 fixed 256 bits size 
+  public and private key
+
+  Produces a unique value for unique input
+  A one-way function
+  
