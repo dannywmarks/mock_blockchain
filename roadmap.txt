@@ -1,0 +1,13 @@
+
+1. Create Block class
+
+BLOCK {
+  timestamp, 
+  lastHash, 
+  data, 
+  hash
+}
+
+TDD: Test driven development approach 
+- confidence in reliable code
+- speed up the coding process 
