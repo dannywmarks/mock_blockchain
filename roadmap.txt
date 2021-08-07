@@ -52,3 +52,19 @@ TDD: Test driven development approach
 9. Replace Chain replaceChain() method
   - Check if the chain is valid and has not been tampered width
   - Check to make sure the length of chain that is being replaced is longer than the original
+
+10. Proof of Work
+  - Invented by Hashcash
+    Difficulty = 6
+           ------ Block data + nonce (number used once)
+    Hash = 000000eb293b10ca3de8
+
+    SHA-256 Hexadecimal form: 64 characters.
+    Bitcoin uses Binary form 256 characters in binary string
+
+  - 51% attack: where an attack controls 51% of the network
+
+  -add nonce, and difficulty to block class, change the cryptoHash in mineBlock, and validateBlock functions.
+
+  11. Make a global dynamic difficulty value 
+    - if blocks timestamp / minerate is under  a certain value increase difficulty. If it is opposite we decrease the value.
