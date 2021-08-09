@@ -75,14 +75,37 @@ describe("Block", () => {
         "0".repeat(minedBlock.difficulty)
       );
     });
+    it("adjusts Difficulty", () => {
+      const possibleResults = [
+        lastBlock.difficulty + 1,
+        lastBlock.difficulty - 1,
+      ];
+
+      expect(possibleResults.includes(minedBlock.difficulty)).toBe(true);
+    });
   });
 
-  describe('adjustDifficulty', () => {
-    it('raises the difficulty for a quickly mined block', () => {
-      expect(Block.adjustDifficulty({originalBlock: block, timestamp: block.timestamp + MINE_RATE - 100})).toEqual(block.difficulty+1)
-    })
-    it('lowers the difficulty for a slowly mined block', () => {
-      expect(Block.adjustDifficulty({originalBlock: block, timestamp: block.timestamp + MINE_RATE + 100})).toEqual(block.difficulty-1)
-    })
-  })
+  describe("adjustDifficulty", () => {
+    it("raises the difficulty for a quickly mined block", () => {
+      expect(
+        Block.adjustDifficulty({
+          originalBlock: block,
+          timestamp: block.timestamp + MINE_RATE - 100,
+        })
+      ).toEqual(block.difficulty + 1);
+    });
+    it("lowers the difficulty for a slowly mined block", () => {
+      expect(
+        Block.adjustDifficulty({
+          originalBlock: block,
+          timestamp: block.timestamp + MINE_RATE + 100,
+        })
+      ).toEqual(block.difficulty - 1);
+    });
+    it("has a lower limit of 1", () => {
+      block.difficulty = -1;
+
+      expect(Block.adjustDifficulty({ originalBlock: block })).toEqual(1);
+    });
+  });
 });

@@ -68,3 +68,6 @@ TDD: Test driven development approach
 
   11. Make a global dynamic difficulty value 
     - if blocks timestamp / minerate is under  a certain value increase difficulty. If it is opposite we decrease the value.
+
+  12. Average work .js hex to binary difficulty script
+    previous and next timestamp, nextBlock, timeDiff, average;
