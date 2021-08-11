@@ -83,4 +83,19 @@ TDD: Test driven development approach
         Node/express
 
       setup server / index.js
-        
+  
+  15. Real-Time messaging Network through PubSub
+    Pub / Sub Pattern
+    Publishers don't look at who is looking at channels
+    Subscribers broadcast to channel
+
+    Highly scalabe: reduces tracking of socket addresses
+
+    Up to subscriber to listen
+    
+    Channels
+    #BLOCKCHAIN 
+
+
+    Redis is used for Pub / Sub capabilities
+    also used for rapid key value store
