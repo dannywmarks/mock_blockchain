@@ -4,11 +4,18 @@
   "description": "JS Cryptochain Project",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Danny Marks",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "hex-to-binary": "^1.0.1"
   }
 }

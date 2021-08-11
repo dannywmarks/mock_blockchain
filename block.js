@@ -1,5 +1,7 @@
+const hexToBinary = require('hex-to-binary');
 const { GENESIS_DATA, MINE_RATE } = require("./config.js");
 const cryptoHash = require("./crypto-hash");
+
 class Block {
   // Use map for arguments to not worry about order
   constructor({ timestamp, lastHash, hash, data, nonce, difficulty }) {
@@ -29,7 +31,7 @@ class Block {
         timestamp,
       });
       hash = cryptoHash(timestamp, lastHash, data, nonce, difficulty);
-    } while (hash.substring(0, difficulty) !== "0".repeat(difficulty));
+    } while (hexToBinary(hash).substring(0, difficulty) !== "0".repeat(difficulty));
 
     return new this({
       timestamp,

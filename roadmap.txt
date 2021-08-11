@@ -71,3 +71,16 @@ TDD: Test driven development approach
 
   12. Average work .js hex to binary difficulty script
     previous and next timestamp, nextBlock, timeDiff, average;
+
+  13. Prevent difficulty attack . Stop attacker from changing the difficulty
+
+  14. Blockchain API and Network. Create nodes so the blockchain can interact with each other.
+    Methds: 
+      Read the blockchain
+      Write on the Blockchain
+      
+      Technologies: 
+        Node/express
+
+      setup server / index.js
+        

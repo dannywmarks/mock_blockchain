@@ -24,12 +24,21 @@ class Blockchain {
       const { timestamp, lastHash, hash, data, difficulty, nonce } = chain[i];
 
       const actualLastHash = chain[i - 1].hash;
+      const lastDifficulty = chain[i - 1].difficulty;
 
       if (lastHash !== actualLastHash) return false;
 
-      const validatedHash = cryptoHash(timestamp, lastHash, data, difficulty, nonce);
+      const validatedHash = cryptoHash(
+        timestamp,
+        lastHash,
+        data,
+        difficulty,
+        nonce
+      );
 
       if (validatedHash !== hash) return false;
+
+      if (Math.abs(lastDifficulty - difficulty) > 1) return false;
     }
 
     return true;
@@ -45,7 +54,7 @@ class Blockchain {
       return;
     }
 
-    console.log('replacing chain with', chain)
+    console.log("replacing chain with", chain);
     this.chain = chain;
   }
 }
