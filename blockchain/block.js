@@ -1,6 +1,6 @@
-const hexToBinary = require('hex-to-binary');
+const hexToBinary = require("hex-to-binary");
 const { GENESIS_DATA, MINE_RATE } = require("../config.js");
-const cryptoHash = require("../utils/crypto-hash");
+const { cryptoHash } = require("../utils");
 
 class Block {
   // Use map for arguments to not worry about order
@@ -31,7 +31,9 @@ class Block {
         timestamp,
       });
       hash = cryptoHash(timestamp, lastHash, data, nonce, difficulty);
-    } while (hexToBinary(hash).substring(0, difficulty) !== "0".repeat(difficulty));
+    } while (
+      hexToBinary(hash).substring(0, difficulty) !== "0".repeat(difficulty)
+    );
 
     return new this({
       timestamp,
@@ -47,7 +49,7 @@ class Block {
     const { difficulty } = originalBlock;
     if (difficulty < 1) return 1;
     const difference = timestamp - originalBlock.timestamp;
-    
+
     if (difference > MINE_RATE) return difficulty - 1;
 
     return difficulty + 1;

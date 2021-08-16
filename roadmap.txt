@@ -130,3 +130,9 @@ TDD: Test driven development approach
         contain wallet objects
         generate Keys
         contain transaction objects
+
+15. Wallet needs to generate signatures and verify them
+16. Transaction objects and output map
+
+17. Transaction input
+    createInput: timestamp, amount, address, signature
