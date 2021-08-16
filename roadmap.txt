@@ -99,3 +99,10 @@ TDD: Test driven development approach
 
     Redis is used for Pub / Sub capabilities
     also used for rapid key value store
+
+    16. Set up cross-env to generate random ports for multiple nodes on blockchain.
+
+      distinguish default port from peer port. 
+      if default port set, set a random port 
+
+      this allows multiple subsribers to listen to blockchain 
