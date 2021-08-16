@@ -1,6 +1,6 @@
 const hexToBinary = require('hex-to-binary');
-const { GENESIS_DATA, MINE_RATE } = require("./config.js");
-const cryptoHash = require("./crypto-hash");
+const { GENESIS_DATA, MINE_RATE } = require("../config.js");
+const cryptoHash = require("../utils/crypto-hash");
 
 class Block {
   // Use map for arguments to not worry about order

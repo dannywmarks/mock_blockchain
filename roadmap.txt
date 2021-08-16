@@ -106,3 +106,27 @@ TDD: Test driven development approach
       if default port set, set a random port 
 
       this allows multiple subsribers to listen to blockchain 
+
+    16. Create Digital Wallet, Public Keys, Private Keys.
+
+      Wallet: 
+        Balance Field
+        Keys - PRIVATE & PUBLIC
+               Private creates unique signatures 
+               Public key allows to verify Private key
+
+        Public Address - identical to public key
+
+      Transactions - Objects that capture information between two people.
+        Input: timestmp, Balance 500, signature, senders public key
+        Output: Amount 40, Address
+        Output: Remaining balance output 460
+
+      Digital signatures 
+        Private plus data = signature
+        Public key to verify signature
+
+       Blockchain- powered Cryptocurrencies
+        contain wallet objects
+        generate Keys
+        contain transaction objects
