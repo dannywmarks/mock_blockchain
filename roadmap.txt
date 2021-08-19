@@ -136,3 +136,8 @@ TDD: Test driven development approach
 
 17. Transaction input
     createInput: timestamp, amount, address, signature
+18. Transaction Pool, The Blockchain and Cryptocurrency 
+    Backend
+    - collects a unique set of transaction objects and outputs
+    - update existing stored transaction 
+    - Rewrite multiple transaction
