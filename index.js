@@ -2,6 +2,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const request = require("request");
 const axios = require("axios");
+const cors = require("cors");
 const path = require("path");
 const Blockchain = require("./blockchain");
 const PubSub = require("./app/pubsub");
@@ -25,6 +26,8 @@ const DEFAULT_PORT = 3001;
 const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 
 app.use(express.json());
+app.use(cors());
+// app.use(express.static(path.join(__dirname, 'client/dist')))
 
 // setTimeout(() => pubsub.broadcastChain(), 1000);
 
@@ -53,9 +56,9 @@ app.get("/api/wallet-info", (req, res) => {
   });
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client/dist/index.html"));
+// });
 
 app.post("/api/mine", (req, res) => {
   const { data } = req.body;
@@ -129,6 +132,57 @@ const syncWithRootState = () => {
     }
   );
 };
+
+const walletFoo = new Wallet();
+const walletBar = new Wallet();
+
+const generteWalletTransaction = ({ wallet, recipient, amount }) => {
+  const transaction = wallet.createTransaction({
+    recipient,
+    amount,
+    chain: blockchain.chain,
+  });
+
+  transactionPool.setTransaction(transaction);
+};
+
+const walletAction = () =>
+  generteWalletTransaction({
+    wallet,
+    recipient: walletFoo.publicKey,
+    amount: 5,
+  });
+
+const walletFooAction = () => {
+  generteWalletTransaction({
+    wallet: walletFoo,
+    recipient: walletBar.publicKey,
+    amount: 10,
+  });
+};
+
+const walletBarAction = () => {
+  generteWalletTransaction({
+    wallet: walletBar,
+    recipient: wallet.publicKey,
+    amount: 15,
+  });
+};
+
+for (let i = 0; i < 10; i++) {
+  if (i % 3 === 0) {
+    walletAction();
+    walletFooAction();
+  } else if (i % 3 === 1) {
+    walletAction();
+    walletBarAction();
+  } else {
+    walletFooAction();
+    walletBarAction();
+  }
+
+  transactionMiner.mineTransactions();
+}
 
 let PEER_PORT;
 
