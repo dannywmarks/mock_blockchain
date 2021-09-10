@@ -1,13 +1,17 @@
-export default (blockchain = {blocks: [], loading: false}, action) => {
+export default (blockchain = {blocks: [], loading: true}, action) => {
   switch (action.type) {
     case "FETCH_BLOCKS":
       return {
         ...blockchain,
         blocks: action.payload,
-        loading: true
+        loading: false
       }
-    case "CREATE":
-      return blockchain;
+    case "MINE_TRANSACTIONS":
+      return {
+        ...blockchain,
+        blocks: action.payload,
+        loading: false
+      }
     default:
       return blockchain;
   }

@@ -11,9 +11,6 @@ export default (
         loading: true,
       };
 
-    case "CREATE":
-      return wallet;
-
     default:
       return wallet;
   }
